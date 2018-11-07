@@ -1,0 +1,19 @@
+{
+  "name": "mypro_proj",
+  "version": "1.0.0",
+  "description": "Protractor project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^2.99.0",
+    "mkdirp": "^0.5.1",
+    "protractor": "^5.4.1"
+  },
+  "devDependencies": {
+    "protractor-beautiful-reporter": "^1.2.5"
+  }
+}

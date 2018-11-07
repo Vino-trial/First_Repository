@@ -1,0 +1,79 @@
+describe('Clicking the Ibmid Button on the ICCVE page Feature', function() {
+  browser.waitForAngularEnabled(false);   //for accessing the non-angular pages
+  var ibmbtn_iccve = element(by.css('[href="https://iccve.uk.ibm.com/mga/sps/oidc/rp/BlueIDNew/kickoff/PartnerBlueID?Target=/web"]'));    // to identify via href values
+  var ibmusrid = element(by.id('username'));
+  var ibmpwd = element(by.id('password'));
+  //var signinbtn = element(by.id('signinbutton'));
+  var contbtn = element(by.id('continuebutton'));
+    it('Should launch the ICCVE  page', function() {
+      browser.get('https://iccve.uk.ibm.com/');
+      //Get the current page url and print it on console
+        browser.getCurrentUrl().then(function(url) {
+          console.log("before using the webHandles , the Web page url is : " +url )
+        });
+      browser.driver.sleep(3000);
+      ibmbtn_iccve.click(); //click the ibmid href button page.
+       
+    });
+
+    it('should enter details and Login', function() {
+      browser.ignoreSynchronization = true;
+      ibmusrid.sendKeys(browser.params.login.email); // to specify the parameters via the config file
+      browser.sleep(1000);
+      ibmusrid.sendKeys(protractor.Key.TAB); //This need not to be have if we use the sendkeys to pwd fields directly.
+      browser.sleep(10000);
+      contbtn.click();
+     browser.sleep(10000);
+   
+
+});
+  });
+/*
+ describe('Checking User Entry in IBM Login page Feature', function() {
+    //browser.waitForAngularEnabled(false);
+    browser.ignoreSynchronization = true; //to enable accessing the javascript pages.
+    var ibmusrid = element(by.id('username'));
+    var ibmpwd = element(by.id('password'));
+    var signinbtn = element(by.id('signinbutton'));
+    var contbtn = element(by.id('continuebutton'));
+    var w3id = element(by.id('desktop'));
+    var w3pwd = element(by.name('password'));
+    var signinbtn2 = element(by.id('btn_signin'));
+    //var w3pwd = element(by.css('.password');
+    it('should enter details and Login', function() {
+    
+              ibmusrid.sendKeys(browser.params.login.email); // to specify the parameters via the config file
+              browser.sleep(10000);
+              ibmusrid.sendKeys(protractor.Key.TAB); //This need not to be have if we use the sendkeys to pwd fields directly.
+              browser.sleep(10000);
+              contbtn.click();
+             browser.sleep(10000);
+           
+  
+    });
+/*
+    it('should enter the user id and pwd details in the W3 page', function() {
+      browser.getCurrentUrl().then(function(url) { //Checking the log in to IBM url page has launched
+        console.log("After using the webHandles(0) , the Web page url is : " +url );
+        w3id.sendKeys(browser.params.login.email); // to specify the parameters via the config file
+        w3id.sendKeys(protractor.Key.TAB); //This need not to be have if we use the sendkeys to pwd fields directly.
+        w3pwd.sendKeys(browser.params.login.password);
+        signinbtn2.click();
+        browser.driver.sleep(1000);
+      });
+      browser.driver.sleep(10000);
+
+    });
+    it('should display the iccve home page', function(){
+      browser.getCurrentUrl().then(function(url1) { 
+      console.log("After using the webHandles(0) , the Web page url is : " +url1 );
+      browser.driver.sleep(10000);
+      browser.getTitle().then(function(titl) {
+        console.log('page title is ', + titl);
+      });
+      browser.sleep(1000);
+      });
+    });
+   
+  }); 
+ */
